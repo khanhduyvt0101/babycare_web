@@ -1,5 +1,7 @@
+import 'package:babycare_web/Sceen/carriage/carriage.dart';
 import 'package:babycare_web/Sceen/category.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Part4_Signup extends StatefulWidget {
@@ -16,55 +18,57 @@ class _Part4_SignupState extends State<Part4_Signup> {
         backgroundColor: Color(0xFFf5f5f5),
         body: SingleChildScrollView(
             child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
+                height: 1024 * 2.h,
+                width: ScreenUtil().screenWidth,
                 child: Column(children: [
                   Category(),
+                  SizedBox(
+                    height: 100.h,
+                  ),
                   Container(
-                    margin: EdgeInsets.only(top: 40),
-                    height: 500,
-                    width: 420,
+                    height: 660 * 2.h,
+                    width: 520 * 2.h,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
                           //padding: EdgeInsets.only(left: 50, right: 50),
-                          margin: EdgeInsets.only(top: 30, bottom: 30),
+
                           child: Text(
                             'Well done!',
                             style: GoogleFonts.dosis(
                                 textStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w700,
                                     color: Colors.black,
-                                    fontSize: 34)),
-                            textAlign: TextAlign.center,
+                                    fontSize: 40 * 2.sp)),
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.only(top: 10),
-                          margin: EdgeInsets.only(bottom: 10),
-                          height: 200,
-                          width: 300,
+                          height: 228 * 2.h,
+                          width: 373 * 2.h,
                           decoration: BoxDecoration(
                             color: Color.fromARGB(255, 196, 196, 196),
                           ),
                           child: Center(
                               child: Text('Idling Animation here !',
                                   style: GoogleFonts.dosis(
-                                      textStyle: TextStyle(fontSize: 20)))),
+                                      textStyle:
+                                          TextStyle(fontSize: 24 * 2.sp)))),
                         ),
                         Container(
-                          width: 280,
+                          width: 300 * 2.h,
                           child: Column(
                             children: [
                               Text(
                                   'We have processing your results Hang on tight!',
                                   textAlign: TextAlign.center,
                                   style: GoogleFonts.dosis(
-                                      textStyle: TextStyle(fontSize: 22))),
+                                      textStyle:
+                                          TextStyle(fontSize: 24 * 2.sp))),
                             ],
                           ),
                         ),
@@ -73,11 +77,11 @@ class _Part4_SignupState extends State<Part4_Signup> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Container()));
+                                    builder: (context) => CarriagePage()));
                           },
                           child: Container(
-                            width: 280,
-                            height: 50,
+                            width: 300 * 2.h,
+                            height: 65 * 2.h,
                             margin: EdgeInsets.fromLTRB(0, 40, 0, 15),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
@@ -86,9 +90,9 @@ class _Part4_SignupState extends State<Part4_Signup> {
                                 child: Text('DONE',
                                     style: GoogleFonts.dosis(
                                       textStyle: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                      ),
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.white,
+                                          fontSize: 20 * 2.sp),
                                     ))),
                           ),
                         ),

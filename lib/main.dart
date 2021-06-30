@@ -2,14 +2,21 @@ import 'package:babycare_web/Sceen/authenticate/login_page.dart';
 import 'package:babycare_web/Sceen/authenticate/signup/part1.dart';
 import 'package:babycare_web/Sceen/authenticate/signup/part2.dart';
 import 'package:babycare_web/Sceen/authenticate/signup/signup_page.dart';
-import 'package:babycare_web/Sceen/carriage.dart';
+import 'package:babycare_web/Sceen/babyhealth/home_babyhealth.dart';
+import 'package:babycare_web/Sceen/babyhealth/updateBMI.dart';
+import 'package:babycare_web/Sceen/carriage/carriage.dart';
+import 'package:babycare_web/Sceen/carriage/createbaby.dart';
+
 import 'package:babycare_web/Sceen/category.dart';
 import 'package:babycare_web/Sceen/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Sceen/authenticate/signup/part2.dart';
 import 'Sceen/authenticate/signup/part3.dart';
 import 'Sceen/authenticate/signup/part4.dart';
+
+//  code deploy:                        firebase deploy --only hosting
 
 void main() {
   runApp(MyApp());
@@ -28,7 +35,13 @@ class StartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CarriagePage();
+    ScreenUtil.init(
+        BoxConstraints(
+            maxWidth: MediaQuery.of(context).size.width,
+            maxHeight: MediaQuery.of(context).size.height),
+        designSize: Size(1440, 1705),
+        orientation: Orientation.landscape);
+    return Part4_Signup();
 
     // Scaffold(
     //   backgroundColor: Color(0xFFf5f5f5),

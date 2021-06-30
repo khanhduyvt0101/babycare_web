@@ -1,6 +1,8 @@
 import 'package:babycare_web/Sceen/authenticate/signup/part2.dart';
 import 'package:babycare_web/Sceen/category.dart';
+import 'package:babycare_web/UI_Widget/containerImg.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Part1_Signup extends StatefulWidget {
@@ -33,51 +35,60 @@ class _Part1_SignupState extends State<Part1_Signup> {
       backgroundColor: Color(0xFFf5f5f5),
       body: SingleChildScrollView(
           child: Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
+              height: 1024 * 2.h,
+              width: ScreenUtil().screenWidth,
               child: Column(
                 children: [
                   Category(),
+                  SizedBox(
+                    height: 120.h,
+                  ),
                   Container(
-                    margin: EdgeInsets.only(top: 20),
-                    height: 530,
-                    width: 420,
+                    height: 660 * 2.h,
+                    width: 520 * 2.h,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        SizedBox(
+                          height: 60.h,
+                        ),
                         Container(
-                          margin: EdgeInsets.only(top: 45, bottom: 80),
                           child: Text(
                             'Your first time ?',
                             style: GoogleFonts.dosis(
                                 textStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w700,
                                     color: Colors.black,
-                                    fontSize: 34)),
+                                    fontSize: 40 * 2.sp)),
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.only(top: 15),
-                          height: 200,
-                          width: 300,
+                          height: 228 * 2.h,
+                          width: 373 * 2.h,
                           decoration: BoxDecoration(
                               color: Color.fromARGB(255, 196, 196, 196),
                               borderRadius: BorderRadius.circular(20)),
                           child: Column(
                             children: [
+                              SizedBox(
+                                height: 40.h,
+                              ),
                               Text(
                                 'What gender is the kid',
                                 style: GoogleFonts.dosis(
                                     textStyle: TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.w700,
                                         color: Colors.black,
-                                        fontSize: 22)),
+                                        fontSize: 24 * 2.sp)),
+                              ),
+                              SizedBox(
+                                height: 80.h,
                               ),
                               Container(
-                                margin: EdgeInsets.only(top: 40),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -86,8 +97,8 @@ class _Part1_SignupState extends State<Part1_Signup> {
                                         manclick();
                                       },
                                       child: Container(
-                                        height: 90,
-                                        width: 90,
+                                        height: 100 * 2.h,
+                                        width: 100 * 2.h,
                                         decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(100),
@@ -96,30 +107,26 @@ class _Part1_SignupState extends State<Part1_Signup> {
                                                 : Color.fromARGB(
                                                     255, 226, 226, 226)),
                                         child: Center(
-                                          child: Container(
-                                            height: 70,
-                                            width: 70,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(100),
-                                                image: DecorationImage(
-                                                    image: AssetImage(
-                                                        'images/signup/man_part1_signup.png'),
-                                                    fit: BoxFit.cover)),
+                                          child: BuildContainerImg(
+                                            height: 80 * 2.h,
+                                            width: 80 * 2.h,
+                                            url:
+                                                'images/signup/man_part1_signup.png',
+                                            radius: 100,
                                           ),
                                         ),
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 30,
+                                      width: 30.w,
                                     ),
                                     InkWell(
                                       onTap: () {
                                         womanclick();
                                       },
                                       child: Container(
-                                        height: 90,
-                                        width: 90,
+                                        height: 100 * 2.h,
+                                        width: 100 * 2.h,
                                         decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(100),
@@ -128,16 +135,12 @@ class _Part1_SignupState extends State<Part1_Signup> {
                                                 : Color.fromARGB(
                                                     255, 226, 226, 226)),
                                         child: Center(
-                                          child: Container(
-                                            height: 70,
-                                            width: 70,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(100),
-                                                image: DecorationImage(
-                                                    image: AssetImage(
-                                                        'images/signup/woman_part1_signup.png'),
-                                                    fit: BoxFit.cover)),
+                                          child: BuildContainerImg(
+                                            height: 80 * 2.h,
+                                            width: 80 * 2.h,
+                                            url:
+                                                'images/signup/woman_part1_signup.png',
+                                            radius: 100,
                                           ),
                                         ),
                                       ),
@@ -156,9 +159,8 @@ class _Part1_SignupState extends State<Part1_Signup> {
                                     builder: (context) => Part2_Signup()));
                           },
                           child: Container(
-                            width: 260,
-                            height: 50,
-                            margin: EdgeInsets.fromLTRB(0, 40, 0, 15),
+                            width: 300 * 2.h,
+                            height: 65 * 2.h,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 color: Color.fromARGB(255, 80, 80, 80)),
@@ -166,49 +168,46 @@ class _Part1_SignupState extends State<Part1_Signup> {
                                 child: Text('Next',
                                     style: GoogleFonts.dosis(
                                       textStyle: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                      ),
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.white,
+                                          fontSize: 20 * 2.sp),
                                     ))),
                           ),
                         ),
                         Text('1/3'),
                         Container(
-                          padding: EdgeInsets.only(left: 12),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                height: 10,
-                                width: 10,
+                                height: 15 * 2.h,
+                                width: 15 * 2.h,
                                 decoration: BoxDecoration(
+                                    border: Border.all(),
                                     borderRadius: BorderRadius.circular(100),
                                     color: Color.fromARGB(255, 80, 80, 80)),
                               ),
                               SizedBox(
-                                width: 10,
+                                width: 10.w,
                               ),
                               Container(
-                                height: 10,
-                                width: 10,
+                                height: 15 * 2.h,
+                                width: 15 * 2.h,
                                 decoration: BoxDecoration(
                                     border: Border.all(),
                                     borderRadius: BorderRadius.circular(100),
                                     color: Colors.white),
                               ),
                               SizedBox(
-                                width: 10,
+                                width: 10.w,
                               ),
                               Container(
-                                height: 10,
-                                width: 10,
+                                height: 15 * 2.h,
+                                width: 15 * 2.h,
                                 decoration: BoxDecoration(
                                     border: Border.all(),
                                     borderRadius: BorderRadius.circular(100),
                                     color: Colors.white),
-                              ),
-                              SizedBox(
-                                width: 10,
                               ),
                             ],
                           ),

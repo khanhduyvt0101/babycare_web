@@ -1,9 +1,35 @@
+import 'package:babycare_web/Sceen/authenticate/signup/signup_page.dart';
 import 'package:babycare_web/Sceen/category.dart';
+import 'package:babycare_web/UI_Widget/containerImg.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  Widget _buildTextfield(String text) {
+    return Container(
+        width: 300 * 2.h,
+        height: 65 * 2.h,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Color.fromARGB(255, 226, 226, 226)),
+        child: TextField(
+          //readOnly: true,
+          //obscureText: true,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            focusedBorder: InputBorder.none,
+            enabledBorder: InputBorder.none,
+            errorBorder: InputBorder.none,
+            disabledBorder: InputBorder.none,
+            labelText: text,
+            contentPadding:
+                EdgeInsets.only(left: 30, bottom: 0, top: 0, right: 0),
+          ),
+        ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,70 +37,43 @@ class LoginPage extends StatelessWidget {
       backgroundColor: Color(0xFFf5f5f5),
       body: SingleChildScrollView(
           child: Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
+              height: 1024 * 2.h,
+              width: ScreenUtil().screenWidth,
               child: Column(
                 children: [
                   Category(),
+                  SizedBox(height: 100.h),
                   Container(
-                    margin: EdgeInsets.only(top: 20),
-                    height: 530,
-                    width: 420,
+                    height: 560 * 2.h,
+                    width: 480 * 2.h,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        _buildTextfield('Username'),
+                        SizedBox(
+                          height: 15 * 2.h,
+                        ),
+                        _buildTextfield('Password'),
+                        SizedBox(
+                          height: 45 * 2.h,
+                        ),
                         Container(
-                            width: 300,
-                            margin: EdgeInsets.fromLTRB(0, 0, 0, 15),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color.fromARGB(255, 226, 226, 226)),
-                            child: TextField(
-                              //obscureText: true,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                focusedBorder: InputBorder.none,
-                                enabledBorder: InputBorder.none,
-                                errorBorder: InputBorder.none,
-                                disabledBorder: InputBorder.none,
-                                labelText: 'Username',
-                                contentPadding: EdgeInsets.only(
-                                    left: 30, bottom: 0, top: 0, right: 0),
-                              ),
-                            )),
-                        Container(
-                            width: 300,
-                            margin: EdgeInsets.fromLTRB(0, 0, 0, 35),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color.fromARGB(255, 226, 226, 226)),
-                            child: TextField(
-                              obscureText: true,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                focusedBorder: InputBorder.none,
-                                enabledBorder: InputBorder.none,
-                                errorBorder: InputBorder.none,
-                                disabledBorder: InputBorder.none,
-                                labelText: 'Password',
-                                contentPadding: EdgeInsets.only(
-                                    left: 30, bottom: 0, top: 0, right: 0),
-                              ),
-                            )),
-                        Container(
-                          width: 300,
-                          height: 50,
-                          margin: EdgeInsets.fromLTRB(0, 0, 0, 15),
+                          width: 300 * 2.h,
+                          height: 65 * 2.h,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: Color.fromARGB(255, 80, 80, 80)),
                           child: Center(
                               child: Text(
                             'LOGIN',
-                            style: TextStyle(color: Colors.white),
+                            style: GoogleFonts.dosis(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.white,
+                                    fontSize: 20 * 2.sp)),
                           )),
                         ),
                         Container(
@@ -82,33 +81,46 @@ class LoginPage extends StatelessWidget {
                             'Forget Password?',
                             style: GoogleFonts.dosis(
                                 textStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w700,
                                     color: Colors.black,
-                                    fontSize: 18)),
+                                    fontSize: 20 * 2.sp)),
                           ),
                         ),
-                        Container(
-                          margin: EdgeInsets.only(top: 40),
-                          height: 50,
-                          width: 150,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage("images/loginpage.png"),
-                          )),
+                        SizedBox(
+                          height: 40 * 2.h,
                         ),
-                        Container(
-                          width: 300,
-                          height: 50,
-                          margin: EdgeInsets.fromLTRB(0, 40, 0, 0),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color.fromARGB(255, 226, 226, 226)),
-                          child: Center(
-                              child: Text(
-                            'Create New Account',
-                            style: TextStyle(color: Colors.black),
-                          )),
+                        BuildContainerImg(
+                          height: 50 * 2.h,
+                          width: 150 * 2.h,
+                          url: "images/loginpage.png",
+                          radius: 0,
+                        ),
+                        SizedBox(
+                          height: 45 * 2.h,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SignupPage()));
+                          },
+                          child: Container(
+                            width: 300 * 2.h,
+                            height: 65 * 2.h,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color.fromARGB(255, 226, 226, 226)),
+                            child: Center(
+                                child: Text(
+                              'Create New Account',
+                              style: GoogleFonts.dosis(
+                                  textStyle: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black,
+                                      fontSize: 20 * 2.sp)),
+                            )),
+                          ),
                         ),
                       ],
                     ),

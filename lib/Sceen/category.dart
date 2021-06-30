@@ -1,8 +1,9 @@
 import 'package:babycare_web/Sceen/authenticate/login_page.dart';
 import 'package:babycare_web/Sceen/authenticate/signup/signup_page.dart';
-import 'package:babycare_web/Sceen/carriage.dart';
+import 'package:babycare_web/Sceen/carriage/carriage.dart';
 import 'package:babycare_web/Sceen/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Category extends StatefulWidget {
@@ -71,9 +72,9 @@ class _CategoryState extends State<Category> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(right: 20),
-      width: MediaQuery.of(context).size.width,
-      height: 100,
+      padding: EdgeInsets.only(right: 20.w),
+      width: ScreenUtil().screenWidth,
+      height: 132.h,
       decoration: BoxDecoration(
         color: Colors.white70,
         border: Border(
@@ -92,12 +93,12 @@ class _CategoryState extends State<Category> {
                   context, MaterialPageRoute(builder: (context) => HomePage()));
             },
             child: Container(
-              margin: EdgeInsets.only(left: 20),
+              margin: EdgeInsets.only(left: 20.w),
               child: Text(
                 'Baby Care',
                 style: GoogleFonts.dosis(
-                    textStyle:
-                        TextStyle(fontSize: 45, fontWeight: FontWeight.bold)),
+                    textStyle: TextStyle(
+                        fontSize: 60.sp, fontWeight: FontWeight.bold)),
               ),
             ),
           ),
@@ -110,7 +111,7 @@ class _CategoryState extends State<Category> {
             },
             child: carriage
                 ? Container(
-                    height: 45,
+                    height: 45.h,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         color: Colors.brown[100]),
@@ -119,7 +120,7 @@ class _CategoryState extends State<Category> {
                         'Carriage',
                         style: GoogleFonts.dosis(
                             textStyle: TextStyle(
-                                fontSize: 35, fontWeight: FontWeight.w500)),
+                                fontSize: 40.sp, fontWeight: FontWeight.w500)),
                       ),
                     ))
                 : Container(
@@ -127,11 +128,11 @@ class _CategoryState extends State<Category> {
                     'Carriage',
                     style: GoogleFonts.dosis(
                         textStyle: TextStyle(
-                            fontSize: 35, fontWeight: FontWeight.w500)),
+                            fontSize: 40.sp, fontWeight: FontWeight.w500)),
                   )),
           ),
           SizedBox(
-            width: 45,
+            width: 45.w,
           ),
           InkWell(
             onTap: () {
@@ -146,18 +147,18 @@ class _CategoryState extends State<Category> {
                       'Vaccination',
                       style: GoogleFonts.dosis(
                           textStyle: TextStyle(
-                              fontSize: 35, fontWeight: FontWeight.w500)),
+                              fontSize: 40.sp, fontWeight: FontWeight.w500)),
                     ))
                 : Container(
                     child: Text(
                     'Vaccination',
                     style: GoogleFonts.dosis(
                         textStyle: TextStyle(
-                            fontSize: 35, fontWeight: FontWeight.w500)),
+                            fontSize: 40.sp, fontWeight: FontWeight.w500)),
                   )),
           ),
           SizedBox(
-            width: 45,
+            width: 45.w,
           ),
           InkWell(
             onTap: () {
@@ -172,18 +173,18 @@ class _CategoryState extends State<Category> {
                       'Account',
                       style: GoogleFonts.dosis(
                           textStyle: TextStyle(
-                              fontSize: 35, fontWeight: FontWeight.w500)),
+                              fontSize: 40.sp, fontWeight: FontWeight.w500)),
                     ))
                 : Container(
                     child: Text(
                     'Account',
                     style: GoogleFonts.dosis(
                         textStyle: TextStyle(
-                            fontSize: 35, fontWeight: FontWeight.w500)),
+                            fontSize: 40.sp, fontWeight: FontWeight.w500)),
                   )),
           ),
           SizedBox(
-            width: 45,
+            width: 45.w,
           ),
           InkWell(
             onTap: () {
@@ -200,18 +201,18 @@ class _CategoryState extends State<Category> {
                       'Login',
                       style: GoogleFonts.dosis(
                           textStyle: TextStyle(
-                              fontSize: 35, fontWeight: FontWeight.bold)),
+                              fontSize: 40.sp, fontWeight: FontWeight.bold)),
                     ))
                 : Container(
                     child: Text(
                     'Login',
                     style: GoogleFonts.dosis(
                         textStyle: TextStyle(
-                            fontSize: 35, fontWeight: FontWeight.bold)),
+                            fontSize: 40.sp, fontWeight: FontWeight.bold)),
                   )),
           ),
           SizedBox(
-            width: 45,
+            width: 45.w,
           ),
           InkWell(
             onTap: () {
@@ -228,14 +229,14 @@ class _CategoryState extends State<Category> {
                       'Sign Up',
                       style: GoogleFonts.dosis(
                           textStyle: TextStyle(
-                              fontSize: 35, fontWeight: FontWeight.bold)),
+                              fontSize: 40.sp, fontWeight: FontWeight.bold)),
                     ))
                 : Container(
                     child: Text(
                     'Sign Up',
                     style: GoogleFonts.dosis(
                         textStyle: TextStyle(
-                            fontSize: 35, fontWeight: FontWeight.bold)),
+                            fontSize: 40.sp, fontWeight: FontWeight.bold)),
                   )),
           ),
         ],

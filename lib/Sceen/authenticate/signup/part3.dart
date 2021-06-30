@@ -1,6 +1,7 @@
 import 'package:babycare_web/Sceen/authenticate/signup/part4.dart';
 import 'package:babycare_web/Sceen/category.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Part3_Signup extends StatefulWidget {
@@ -14,8 +15,8 @@ class _Part3_SignupState extends State<Part3_Signup> {
   Widget _buildContainer(String text, double distancebottom) {
     return Container(
       margin: EdgeInsets.only(bottom: distancebottom),
-      width: 150,
-      height: 30,
+      width: 220 * 2.h,
+      height: 48 * 2.h,
       decoration: BoxDecoration(
           border: Border.all(),
           borderRadius: BorderRadius.circular(35),
@@ -26,24 +27,27 @@ class _Part3_SignupState extends State<Part3_Signup> {
             Text(
               text,
               style: GoogleFonts.dosis(
-                  textStyle: TextStyle(color: Colors.black, fontSize: 12)),
+                  textStyle: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20 * 2.sp,
+                      fontWeight: FontWeight.w400)),
               //textAlign: TextAlign.center,
             ),
             SizedBox(
-              height: 4,
+              height: 8.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 7,
-                  width: 55,
+                  height: 10 * 2.h,
+                  width: 100 * 2.h,
                   decoration:
                       BoxDecoration(color: Colors.black, border: Border.all()),
                 ),
                 Container(
-                  height: 7,
-                  width: 55,
+                  height: 10 * 2.h,
+                  width: 100 * 2.h,
                   decoration:
                       BoxDecoration(color: Colors.white, border: Border.all()),
                 ),
@@ -61,38 +65,44 @@ class _Part3_SignupState extends State<Part3_Signup> {
         backgroundColor: Color(0xFFf5f5f5),
         body: SingleChildScrollView(
             child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
+                height: 1024 * 2.h,
+                width: ScreenUtil().screenWidth,
                 child: Column(children: [
                   Category(),
+                  SizedBox(
+                    height: 40.h,
+                  ),
                   Container(
-                    margin: EdgeInsets.only(top: 10),
-                    height: 560,
-                    width: 420,
+                    height: 760 * 2.h,
+                    width: 520 * 2.h,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          //padding: EdgeInsets.only(left: 50, right: 50),
-                          margin: EdgeInsets.only(top: 10, bottom: 15),
-                          child: Text(
-                            'Can you remember what your baby ate last week?',
-                            style: GoogleFonts.dosis(
-                                textStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                    fontSize: 25)),
-                            textAlign: TextAlign.center,
+                          width: 400 * 2.h,
+                          child: Column(
+                            children: [
+                              Text(
+                                'Can you remember what your baby ate last week?',
+                                style: GoogleFonts.dosis(
+                                    textStyle: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.black,
+                                        fontSize: 24 * 2.sp)),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
                         ),
                         Container(
                           padding: EdgeInsets.only(top: 10),
                           margin: EdgeInsets.only(bottom: 10),
-                          height: 420,
-                          width: 300,
+                          height: 600 * 2.h,
+                          width: 331 * 2.h,
                           decoration: BoxDecoration(
                               color: Color.fromARGB(255, 196, 196, 196),
                               borderRadius: BorderRadius.circular(20)),
@@ -106,8 +116,8 @@ class _Part3_SignupState extends State<Part3_Signup> {
                                 children: [
                                   Container(
                                     //margin: EdgeInsets.only(left: 40),
-                                    width: 40,
-                                    height: 320,
+                                    width: 40 * 2.h,
+                                    height: 460 * 2.h,
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
                                             fit: BoxFit.cover,
@@ -115,18 +125,27 @@ class _Part3_SignupState extends State<Part3_Signup> {
                                                 '/images/signup/part3_signup.png'))),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(top: 8, left: 20),
+                                    margin:
+                                        EdgeInsets.only(top: 8.h, left: 20.w),
                                     child: Column(
                                       //mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        _buildContainer('Porridge: 0 b', 8),
-                                        _buildContainer('Porridge: 0 b', 8),
-                                        _buildContainer('Porridge: 0 b', 8),
-                                        _buildContainer('Porridge: 0 b', 12),
-                                        _buildContainer('Porridge: 0 b', 11),
-                                        _buildContainer('Porridge: 0 b', 8),
-                                        _buildContainer('Porridge: 0 b', 10),
-                                        _buildContainer('Porridge: 0 b', 8),
+                                        _buildContainer(
+                                            'Porridge: 0 b', 8 * 2.h),
+                                        _buildContainer(
+                                            'Porridge: 0 b', 8 * 2.h),
+                                        _buildContainer(
+                                            'Porridge: 0 b', 8 * 2.h),
+                                        _buildContainer(
+                                            'Porridge: 0 b', 12 * 2.h),
+                                        _buildContainer(
+                                            'Porridge: 0 b', 11 * 2.h),
+                                        _buildContainer(
+                                            'Porridge: 0 b', 8 * 2.h),
+                                        _buildContainer(
+                                            'Porridge: 0 b', 10 * 2.h),
+                                        _buildContainer(
+                                            'Porridge: 0 b', 8 * 2.h),
                                       ],
                                     ),
                                   )
@@ -136,9 +155,8 @@ class _Part3_SignupState extends State<Part3_Signup> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Container(
-                                    width: 130,
-                                    height: 50,
-                                    margin: EdgeInsets.fromLTRB(0, 20, 10, 15),
+                                    width: 140 * 2.h,
+                                    height: 65 * 2.h,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                         color: Colors.white),
@@ -146,10 +164,13 @@ class _Part3_SignupState extends State<Part3_Signup> {
                                         child: Text('Skip',
                                             style: GoogleFonts.dosis(
                                               textStyle: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
+                                                  fontWeight: FontWeight.w700,
+                                                  color: Colors.black,
+                                                  fontSize: 20 * 2.sp),
                                             ))),
+                                  ),
+                                  SizedBox(
+                                    width: 20.w,
                                   ),
                                   InkWell(
                                     onTap: () {
@@ -160,8 +181,8 @@ class _Part3_SignupState extends State<Part3_Signup> {
                                                   Part4_Signup()));
                                     },
                                     child: Container(
-                                      width: 130,
-                                      height: 50,
+                                      width: 140 * 2.h,
+                                      height: 65 * 2.h,
                                       margin: EdgeInsets.fromLTRB(0, 20, 0, 15),
                                       decoration: BoxDecoration(
                                           borderRadius:
@@ -172,9 +193,9 @@ class _Part3_SignupState extends State<Part3_Signup> {
                                           child: Text('Next',
                                               style: GoogleFonts.dosis(
                                                 textStyle: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.white,
-                                                ),
+                                                    fontWeight: FontWeight.w700,
+                                                    color: Colors.white,
+                                                    fontSize: 20 * 2.sp),
                                               ))),
                                     ),
                                   ),
@@ -185,42 +206,38 @@ class _Part3_SignupState extends State<Part3_Signup> {
                         ),
                         Text('3/3'),
                         Container(
-                          padding: EdgeInsets.only(left: 12),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                height: 10,
-                                width: 10,
+                                height: 15 * 2.h,
+                                width: 15 * 2.h,
                                 decoration: BoxDecoration(
                                     border: Border.all(),
                                     borderRadius: BorderRadius.circular(100),
                                     color: Colors.white),
                               ),
                               SizedBox(
-                                width: 10,
+                                width: 10.w,
                               ),
                               Container(
-                                height: 10,
-                                width: 10,
+                                height: 15 * 2.h,
+                                width: 15 * 2.h,
                                 decoration: BoxDecoration(
                                     border: Border.all(),
                                     borderRadius: BorderRadius.circular(100),
                                     color: Colors.white),
                               ),
                               SizedBox(
-                                width: 10,
+                                width: 10.w,
                               ),
                               Container(
-                                height: 10,
-                                width: 10,
+                                height: 15 * 2.h,
+                                width: 15 * 2.h,
                                 decoration: BoxDecoration(
                                     border: Border.all(),
                                     borderRadius: BorderRadius.circular(100),
                                     color: Color.fromARGB(255, 80, 80, 80)),
-                              ),
-                              SizedBox(
-                                width: 10,
                               ),
                             ],
                           ),

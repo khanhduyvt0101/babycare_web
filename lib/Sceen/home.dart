@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'category.dart';
 
@@ -16,8 +17,8 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color(0xFFf5f5f5),
         body: SingleChildScrollView(
             child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
+                height: ScreenUtil().screenHeight,
+                width: ScreenUtil().screenWidth,
                 child: Column(children: [
                   Category(),
                 ]))));

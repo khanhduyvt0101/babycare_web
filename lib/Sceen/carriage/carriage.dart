@@ -1,7 +1,9 @@
+import 'package:babycare_web/Sceen/carriage/createbaby.dart';
+import 'package:babycare_web/UI_Widget/containerImg.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'category.dart';
+import '../category.dart';
 
 class CarriagePage extends StatefulWidget {
   const CarriagePage({Key? key}) : super(key: key);
@@ -130,23 +132,29 @@ class _CarriagePageState extends State<CarriagePage> {
                                 child: Text('2/3'),
                               ),
                             ),
-                            Container(
-                              margin: EdgeInsets.only(left: 20),
-                              height: 40,
-                              width: 75,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  color: Color.fromARGB(255, 226, 226, 226)),
-                              child: Center(
-                                child: Container(
-                                  height: 30,
+                            SizedBox(
+                              width: 20,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => CreateBaby()));
+                              },
+                              child: Container(
+                                height: 40,
+                                width: 75,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    color: Color.fromARGB(255, 226, 226, 226)),
+                                child: Center(
+                                    child: BuildContainerImg(
                                   width: 30,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(100),
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              'images/carriage/plus.png'))),
-                                ),
+                                  height: 30,
+                                  url: 'images/carriage/plus.png',
+                                  radius: 100,
+                                )),
                               ),
                             )
                           ],
