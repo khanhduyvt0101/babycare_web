@@ -112,12 +112,15 @@ class _CreateBabyState extends State<CreateBaby> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(
+            width: 10.w,
+          ),
           Container(
             margin: EdgeInsets.only(left: 5),
             height: 40 * 2.h,
             width: 40 * 2.h,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: BorderRadius.circular(0),
                 image:
                     DecorationImage(image: AssetImage(url), fit: BoxFit.cover)),
           ),
@@ -178,14 +181,16 @@ class _CreateBabyState extends State<CreateBaby> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                SizedBox(
+                  width: 10.w,
+                ),
                 Container(
                   height: 40 * 2.h,
                   width: 40 * 2.h,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
                       image: DecorationImage(
-                          image:
-                              AssetImage('images/carriage/createbaby/date.png'),
+                          image: AssetImage('images/global/ages.png'),
                           fit: BoxFit.cover)),
                 ),
                 Text(
@@ -202,13 +207,11 @@ class _CreateBabyState extends State<CreateBaby> {
         SizedBox(
           height: 15,
         ),
-        _buildContainerBMI(
-            'Height: 100 cm', 'images/carriage/createbaby/height.png'),
+        _buildContainerBMI('Height: 100 cm', 'images/global/height.png'),
         SizedBox(
           height: 15,
         ),
-        _buildContainerBMI(
-            'Weight: 400 g', 'images/carriage/createbaby/weight.png'),
+        _buildContainerBMI('Weight: 400 g', 'images/global/weight.png'),
       ],
     );
   }
@@ -227,8 +230,7 @@ class _CreateBabyState extends State<CreateBaby> {
               width: 100 * 2.h,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
-                  color:
-                      man ? Colors.amber : Color.fromARGB(255, 226, 226, 226)),
+                  color: man ? Colors.amber : Color.fromARGB(255, 5, 199, 242)),
               child: Center(
                 child: BuildContainerImg(
                   height: 80 * 2.h,
@@ -253,7 +255,7 @@ class _CreateBabyState extends State<CreateBaby> {
                   borderRadius: BorderRadius.circular(100),
                   color: woman
                       ? Colors.amber
-                      : Color.fromARGB(255, 226, 226, 226)),
+                      : Color.fromARGB(255, 242, 179, 225)),
               child: Center(
                 child: BuildContainerImg(
                   height: 80 * 2.h,
@@ -288,6 +290,14 @@ class _CreateBabyState extends State<CreateBaby> {
                     fontSize: 24 * 2.sp)),
           ),
           _buildSexBaby(),
+          Text(
+            'Know more about your kid',
+            style: GoogleFonts.dosis(
+                textStyle: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
+                    fontSize: 24 * 2.sp)),
+          ),
           _buildCreateBMI(),
           Container(
             width: 300 * 2.h,
@@ -358,7 +368,7 @@ class _CreateBabyState extends State<CreateBaby> {
               margin: EdgeInsets.fromLTRB(0, 0, 0, 15),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Color.fromARGB(255, 80, 80, 80)),
+                  color: Color.fromARGB(255, 252, 148, 149)),
               child: Center(
                   child: Text(
                 'DONE',
@@ -374,7 +384,7 @@ class _CreateBabyState extends State<CreateBaby> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFf5f5f5),
+        backgroundColor: Color.fromARGB(255, 167, 155, 242),
         body: SingleChildScrollView(
             child: Container(
                 height: 1529 * 2.h,
@@ -382,7 +392,10 @@ class _CreateBabyState extends State<CreateBaby> {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Category(),
+                      Category(
+                        isActive: 'home',
+                        isLogin: true,
+                      ),
                       SizedBox(
                         height: 100.h,
                       ),
@@ -412,10 +425,11 @@ class _CreateBabyState extends State<CreateBaby> {
                               SizedBox(
                                 height: 40.h,
                               ),
-                              Container(
+                              BuildContainerImg(
                                 height: 400 * 2.h,
                                 width: 500 * 2.h,
-                                color: Color.fromARGB(255, 196, 196, 196),
+                                url: 'images/carriage/baby2.png',
+                                radius: 0,
                               )
                             ],
                           ),

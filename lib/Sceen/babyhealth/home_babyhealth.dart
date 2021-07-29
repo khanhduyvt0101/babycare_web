@@ -17,7 +17,7 @@ class Home_Babyhealth extends StatefulWidget {
 class _Home_BabyhealthState extends State<Home_Babyhealth> {
   Widget _buildStatus() {
     return Container(
-      width: ScreenUtil().screenWidth / 2.5,
+      width: 900.h,
       height: 900.h,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -52,7 +52,7 @@ class _Home_BabyhealthState extends State<Home_Babyhealth> {
                 height: 40.h,
                 width: 40.h,
                 decoration: BoxDecoration(
-                    color: Colors.black87,
+                    color: Color.fromARGB(255, 252, 148, 149),
                     borderRadius: BorderRadius.circular(3)),
                 child: Center(
                   child: Text(
@@ -107,12 +107,15 @@ class _Home_BabyhealthState extends State<Home_Babyhealth> {
             height: 40.h,
           ),
           Container(
-            width: 320.h,
+            width: 480.h,
             height: 60.h,
-            color: Color.fromARGB(255, 196, 196, 196),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Color.fromARGB(255, 255, 255, 144),
+            ),
             child: Center(
               child: Text(
-                "Birthday remainder",
+                "15 days left to one month old",
                 style: GoogleFonts.dosis(
                     textStyle: TextStyle(
                         fontWeight: FontWeight.w400,
@@ -139,9 +142,12 @@ class _Home_BabyhealthState extends State<Home_Babyhealth> {
                 width: 10.w,
               ),
               Container(
-                width: 163.h,
+                width: 191.h,
                 height: 60.h,
-                color: Color.fromARGB(255, 196, 196, 196),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color.fromARGB(255, 255, 255, 144),
+                ),
                 child: Center(
                   child: Text(
                     "Achieve",
@@ -149,7 +155,7 @@ class _Home_BabyhealthState extends State<Home_Babyhealth> {
                         textStyle: TextStyle(
                             fontWeight: FontWeight.w400,
                             color: Colors.black,
-                            fontSize: 40.sp)),
+                            fontSize: 30.sp)),
                   ),
                 ),
               ),
@@ -160,12 +166,65 @@ class _Home_BabyhealthState extends State<Home_Babyhealth> {
     );
   }
 
+  Widget _buildTextFieldBMI(
+      String urlicon, String text, String number, String urlemoji) {
+    return Container(
+      height: 65 * 2.h,
+      width: 405 * 2.h,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Color.fromARGB(255, 226, 226, 226)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          BuildContainerImg(
+            height: 52 * 2.h,
+            width: 46 * 2.h,
+            url: urlicon,
+            radius: 0,
+          ),
+          Text(
+            text,
+            style: GoogleFonts.dosis(
+                textStyle: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                    fontSize: 20 * 2.sp)),
+          ),
+          Container(
+              height: 42 * 2.h,
+              width: 75 * 2.h,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color.fromARGB(255, 133, 180, 242)),
+              child: Center(
+                child: Text(
+                  number,
+                  style: GoogleFonts.dosis(
+                      textStyle: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                          fontSize: 20 * 2.sp)),
+                ),
+              )),
+          BuildContainerImg(
+            width: 42 * 2.h,
+            height: 42 * 2.h,
+            url: urlemoji,
+            radius: 0,
+          )
+        ],
+      ),
+    );
+  }
+
   Widget _buildContainerBMI() {
     return Container(
-      width: 461.w,
-      height: 376.h,
+      width: 461 * 2.h,
+      height: 376 * 2.h,
       decoration: BoxDecoration(
-          color: Color.fromARGB(255, 196, 196, 196),
+          color: Color.fromARGB(255, 167, 155, 242),
           borderRadius: BorderRadius.circular(10)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -175,71 +234,29 @@ class _Home_BabyhealthState extends State<Home_Babyhealth> {
             "Body Mass Index",
             style: GoogleFonts.dosis(
                 textStyle: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w600,
                     color: Colors.black,
-                    fontSize: 48.sp)),
+                    fontSize: 48 * 2.sp)),
           ),
-          Container(
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      "Current height:",
-                      style: GoogleFonts.dosis(
-                          textStyle: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black,
-                              fontSize: 28.sp)),
-                    ),
-                    Text(
-                      "100cm",
-                      style: GoogleFonts.dosis(
-                          textStyle: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                              fontSize: 28.sp)),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      "Current weight:",
-                      style: GoogleFonts.dosis(
-                          textStyle: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black,
-                              fontSize: 28.sp)),
-                    ),
-                    Text(
-                      "4000g",
-                      style: GoogleFonts.dosis(
-                          textStyle: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                              fontSize: 28.sp)),
-                    )
-                  ],
-                )
-              ],
-            ),
-          ),
+          _buildTextFieldBMI('images/global/height.png', "Current height:",
+              "100cm", 'images/global/EmojiSad.png'),
+          _buildTextFieldBMI('images/global/weight.png', "Current weight:",
+              "4000g", 'images/global/EmojiHeartEye.png'),
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              Spacer(),
               InkWell(
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => UpdateBMI()));
                 },
                 child: Container(
-                  margin: EdgeInsets.only(right: 60.w),
-                  width: 150.h,
-                  height: 65.h,
-                  color: Color.fromARGB(255, 80, 80, 80),
+                  width: 174 * 2.h,
+                  height: 84 * 2.h,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color.fromARGB(255, 252, 148, 149)),
                   child: Center(
                     child: Text(
                       "Update",
@@ -247,12 +264,51 @@ class _Home_BabyhealthState extends State<Home_Babyhealth> {
                           textStyle: TextStyle(
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
-                              fontSize: 20.sp)),
+                              fontSize: 20 * 2.sp)),
                     ),
                   ),
                 ),
               ),
+              SizedBox(
+                width: 20.w,
+              )
             ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTextFieldNI(String urlicon, String text, String urlemoji) {
+    return Container(
+      width: 162 * 2.h,
+      height: 190 * 2.h,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Color.fromARGB(255, 226, 226, 226)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          BuildContainerImg(
+            height: 45 * 2.h,
+            width: 45 * 2.h,
+            url: urlicon,
+            radius: 0,
+          ),
+          Text(
+            text,
+            style: GoogleFonts.dosis(
+                textStyle: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                    fontSize: 20 * 2.sp)),
+          ),
+          BuildContainerImg(
+            height: 58 * 2.h,
+            width: 58 * 2.h,
+            url: urlemoji,
+            radius: 0,
           )
         ],
       ),
@@ -261,10 +317,10 @@ class _Home_BabyhealthState extends State<Home_Babyhealth> {
 
   Widget _buildContainerNI() {
     return Container(
-      width: 461.w,
-      height: 376.h,
+      width: 461 * 2.h,
+      height: 1210 * 2.h,
       decoration: BoxDecoration(
-          color: Color.fromARGB(255, 196, 196, 196),
+          color: Color.fromARGB(255, 167, 155, 242),
           borderRadius: BorderRadius.circular(10)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -274,36 +330,77 @@ class _Home_BabyhealthState extends State<Home_Babyhealth> {
             "Nutrition Index",
             style: GoogleFonts.dosis(
                 textStyle: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w600,
                     color: Colors.black,
-                    fontSize: 48.sp)),
+                    fontSize: 48 * 2.sp)),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => UpdateNI()));
-                },
-                child: Container(
-                  margin: EdgeInsets.only(right: 60.w),
-                  width: 150.h,
-                  height: 65.h,
-                  color: Color.fromARGB(255, 80, 80, 80),
-                  child: Center(
-                    child: Text(
-                      "Update",
-                      style: GoogleFonts.dosis(
-                          textStyle: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                              fontSize: 20.sp)),
-                    ),
-                  ),
+              _buildTextFieldNI('images/global/bread.png', 'Carbohydrate',
+                  'images/global/EmojiHeartEye.png'),
+              _buildTextFieldNI('images/global/fat.png', 'Fat',
+                  'images/global/EmojiHappy.png')
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildTextFieldNI('images/global/protein.png', 'Protein',
+                  'images/global/EmojiSmile.png'),
+              _buildTextFieldNI('images/global/vitamin_a.png', 'Vitamin A',
+                  'images/global/EmojiHeartEye.png')
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildTextFieldNI('images/global/vitamin_b.png', 'Vitamin B',
+                  'images/global/EmojiSad.png'),
+              _buildTextFieldNI('images/global/vitamin_c.png', 'Vitamin C',
+                  'images/global/EmojiHappy.png')
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildTextFieldNI('images/global/vitamin_d.png', 'Vitamin D',
+                  'images/global/EmojiSmile.png'),
+              _buildTextFieldNI('images/global/beef.png', 'Iron',
+                  'images/global/EmojiHappy.png')
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildTextFieldNI('images/global/milk.png', 'Calcium',
+                  'images/global/EmojiHappy.png'),
+              _buildTextFieldNI('images/global/seafood.png', 'Iodine',
+                  'images/global/EmojiHeartEye.png')
+            ],
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => UpdateNI()));
+            },
+            child: Container(
+              height: 68 * 2.h,
+              width: 174 * 2.h,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color.fromARGB(255, 252, 148, 149)),
+              child: Center(
+                child: Text(
+                  "Update",
+                  style: GoogleFonts.dosis(
+                      textStyle: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                          fontSize: 20 * 2.sp)),
                 ),
               ),
-            ],
+            ),
           )
         ],
       ),
@@ -313,22 +410,28 @@ class _Home_BabyhealthState extends State<Home_Babyhealth> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFf5f5f5),
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
             child: Container(
-                height: 1705,
+                height: 2459 * 2.h,
                 width: ScreenUtil().screenWidth,
                 child: Column(children: [
-                  Category(),
+                  Category(
+                    isActive: 'home',
+                    isLogin: true,
+                  ),
+                  SizedBox(
+                    height: 100.h,
+                  ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       _buildStatus(),
-                      Spacer(),
-                      Container(
-                        width: ScreenUtil().screenWidth -
-                            (ScreenUtil().screenWidth / 2.5),
+                      BuildContainerImg(
                         height: 900.h,
-                        color: Color.fromARGB(255, 196, 196, 196),
+                        width: 900.h,
+                        url: 'images/home/1.png',
+                        radius: 10,
                       )
                     ],
                   ),
@@ -340,21 +443,97 @@ class _Home_BabyhealthState extends State<Home_Babyhealth> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text(
-                              "Last update BMI time",
-                              style: GoogleFonts.dosis(
-                                  textStyle: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.black,
-                                      fontSize: 40.sp)),
+                            Row(
+                              children: [
+                                Container(
+                                  height: 40.h,
+                                  width: 40.h,
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 255, 119, 26),
+                                      borderRadius: BorderRadius.circular(3)),
+                                  child: Center(
+                                    child: Text(
+                                      '!',
+                                      style: GoogleFonts.dosis(
+                                          textStyle: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                              fontSize: 40.sp)),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  " It’s been ",
+                                  style: GoogleFonts.dosis(
+                                      textStyle: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black,
+                                          fontSize: 40.sp)),
+                                ),
+                                Container(
+                                  height: 40.h,
+                                  width: 40.h,
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 255, 119, 26),
+                                      borderRadius: BorderRadius.circular(3)),
+                                  child: Center(
+                                    child: Text(
+                                      '10',
+                                      style: GoogleFonts.dosis(
+                                          textStyle: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                              fontSize: 40.sp)),
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  " days since you last updated BMI",
+                                  style: GoogleFonts.dosis(
+                                      textStyle: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black,
+                                          fontSize: 40.sp)),
+                                ),
+                              ],
                             ),
-                            Text(
-                              "Last update NI time",
-                              style: GoogleFonts.dosis(
-                                  textStyle: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.black,
-                                      fontSize: 40.sp)),
+                            Row(
+                              children: [
+                                Text(
+                                  " It’s been ",
+                                  style: GoogleFonts.dosis(
+                                      textStyle: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black,
+                                          fontSize: 40.sp)),
+                                ),
+                                Container(
+                                  height: 40.h,
+                                  width: 40.h,
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 136, 192, 87),
+                                      borderRadius: BorderRadius.circular(3)),
+                                  child: Center(
+                                    child: Text(
+                                      '4',
+                                      style: GoogleFonts.dosis(
+                                          textStyle: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                              fontSize: 40.sp)),
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  " days since you last updated NI",
+                                  style: GoogleFonts.dosis(
+                                      textStyle: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black,
+                                          fontSize: 40.sp)),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -362,6 +541,7 @@ class _Home_BabyhealthState extends State<Home_Babyhealth> {
                           height: 40.h,
                         ),
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             _buildContainerBMI(),

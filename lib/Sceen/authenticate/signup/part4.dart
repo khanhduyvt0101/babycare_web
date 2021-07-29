@@ -1,3 +1,4 @@
+import 'package:babycare_web/Sceen/authenticate/login_page.dart';
 import 'package:babycare_web/Sceen/carriage/carriage.dart';
 import 'package:babycare_web/Sceen/category.dart';
 import 'package:flutter/material.dart';
@@ -15,13 +16,16 @@ class _Part4_SignupState extends State<Part4_Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFf5f5f5),
+        backgroundColor: Color.fromARGB(255, 167, 155, 242),
         body: SingleChildScrollView(
             child: Container(
                 height: 1024 * 2.h,
                 width: ScreenUtil().screenWidth,
                 child: Column(children: [
-                  Category(),
+                  Category(
+                    isActive: 'signup',
+                    isLogin: false,
+                  ),
                   SizedBox(
                     height: 100.h,
                   ),
@@ -51,7 +55,7 @@ class _Part4_SignupState extends State<Part4_Signup> {
                           height: 228 * 2.h,
                           width: 373 * 2.h,
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 196, 196, 196),
+                            color: Color.fromARGB(255, 145, 242, 233),
                           ),
                           child: Center(
                               child: Text('Idling Animation here !',
@@ -77,7 +81,7 @@ class _Part4_SignupState extends State<Part4_Signup> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => CarriagePage()));
+                                    builder: (context) => LoginPage()));
                           },
                           child: Container(
                             width: 300 * 2.h,
@@ -85,7 +89,7 @@ class _Part4_SignupState extends State<Part4_Signup> {
                             margin: EdgeInsets.fromLTRB(0, 40, 0, 15),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                color: Color.fromARGB(255, 80, 80, 80)),
+                                color: Color.fromARGB(255, 252, 148, 149)),
                             child: Center(
                                 child: Text('DONE',
                                     style: GoogleFonts.dosis(

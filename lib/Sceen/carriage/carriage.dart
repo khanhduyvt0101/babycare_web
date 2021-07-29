@@ -1,6 +1,8 @@
 import 'package:babycare_web/Sceen/carriage/createbaby.dart';
+import 'package:babycare_web/Sceen/home.dart';
 import 'package:babycare_web/UI_Widget/containerImg.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../category.dart';
@@ -13,23 +15,21 @@ class CarriagePage extends StatefulWidget {
 }
 
 class _CarriagePageState extends State<CarriagePage> {
-  Widget _buildContainer(String name, String month) {
+  Widget _buildContainer(String name, String month, String url) {
     return Container(
-      height: 240,
-      width: 1000,
+      height: 400.h,
+      width: 1200.h,
       decoration: BoxDecoration(
-          color: Color.fromARGB(255, 226, 226, 226),
+          color: Color.fromARGB(255, 167, 155, 242),
           borderRadius: BorderRadius.circular(15)),
       child: Row(
         children: [
-          Container(
-            margin: EdgeInsets.all(8),
-            height: 225,
-            width: 300,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: Colors.grey[700],
-            ),
+          SizedBox(width: 5.w),
+          BuildContainerImg(
+            height: 380.h,
+            width: 380.h,
+            url: url,
+            radius: 8,
           ),
           Expanded(
               child: Column(
@@ -43,60 +43,62 @@ class _CarriagePageState extends State<CarriagePage> {
                     name,
                     style: GoogleFonts.dosis(
                         textStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
                             color: Colors.black,
-                            fontSize: 25)),
+                            fontSize: 60.sp)),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 10.w,
                   ),
                   Container(
-                    width: 1.5,
-                    height: 25,
+                    width: 1.5.w,
+                    height: 60.h,
                     color: Colors.black,
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 10.w,
                   ),
                   Container(
-                    height: 24,
-                    width: 24,
+                    height: 40.h,
+                    width: 40.h,
                     decoration: BoxDecoration(
-                        color: Colors.black87,
-                        borderRadius: BorderRadius.circular(8)),
+                        color: Color.fromARGB(255, 252, 148, 149),
+                        borderRadius: BorderRadius.circular(5)),
                     child: Center(
                       child: Text(
                         '15',
                         style: GoogleFonts.dosis(
                             textStyle: TextStyle(
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w700,
                                 color: Colors.white,
-                                fontSize: 17)),
+                                fontSize: 36.sp)),
                       ),
                     ),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 10.w,
                   ),
                   Text(
                     month,
                     style: GoogleFonts.dosis(
                         textStyle: TextStyle(
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w400,
                             color: Colors.black,
-                            fontSize: 18)),
+                            fontSize: 40.sp)),
                   ),
                 ],
               ),
+              SizedBox(
+                height: 30.h,
+              ),
               Container(
-                margin: EdgeInsets.only(top: 20),
-                width: 60,
-                height: 60,
+                width: 128.h,
+                height: 128.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     image: DecorationImage(
-                        image:
-                            AssetImage('images/carriage/EmojiHeartEye.png'))),
+                        image: AssetImage('images/carriage/EmojiHeartEye.png'),
+                        fit: BoxFit.cover)),
               )
             ],
           ))
@@ -108,32 +110,44 @@ class _CarriagePageState extends State<CarriagePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white70,
         body: SingleChildScrollView(
             child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
+                height: 1140.w,
+                width: ScreenUtil().screenWidth,
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Category(),
+                      Category(
+                        isActive: 'carriage',
+                        isLogin: true,
+                      ),
+                      SizedBox(
+                        height: 60.h,
+                      ),
                       Container(
-                        margin: EdgeInsets.only(top: 20, bottom: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              height: 40,
-                              width: 75,
+                              height: 80.h,
+                              width: 120.h,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(8),
-                                  color: Color.fromARGB(255, 226, 226, 226)),
+                                  color: Color.fromARGB(255, 255, 218, 143)),
                               child: Center(
-                                child: Text('2/3'),
+                                child: Text(
+                                  '2/3',
+                                  style: GoogleFonts.dosis(
+                                      textStyle: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                          fontSize: 36.sp)),
+                                ),
                               ),
                             ),
                             SizedBox(
-                              width: 20,
+                              width: 20.w,
                             ),
                             InkWell(
                               onTap: () {
@@ -143,15 +157,15 @@ class _CarriagePageState extends State<CarriagePage> {
                                         builder: (context) => CreateBaby()));
                               },
                               child: Container(
-                                height: 40,
-                                width: 75,
+                                height: 80.h,
+                                width: 120.h,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
                                     color: Color.fromARGB(255, 226, 226, 226)),
                                 child: Center(
                                     child: BuildContainerImg(
-                                  width: 30,
-                                  height: 30,
+                                  width: 50.h,
+                                  height: 50.h,
                                   url: 'images/carriage/plus.png',
                                   radius: 100,
                                 )),
@@ -160,11 +174,24 @@ class _CarriagePageState extends State<CarriagePage> {
                           ],
                         ),
                       ),
-                      _buildContainer('Name', "month"),
                       SizedBox(
-                        height: 20,
+                        height: 60.h,
                       ),
-                      _buildContainer('Name', "month"),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage()));
+                        },
+                        child: _buildContainer(
+                            'Name', "month", 'images/carriage/baby1.png'),
+                      ),
+                      SizedBox(
+                        height: 50.h,
+                      ),
+                      _buildContainer(
+                          'Name', "month", 'images/carriage/baby2.png'),
                     ]))));
   }
 }

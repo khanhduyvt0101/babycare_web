@@ -32,14 +32,17 @@ class _Part1_SignupState extends State<Part1_Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFf5f5f5),
+      backgroundColor: Color.fromARGB(255, 167, 155, 242),
       body: SingleChildScrollView(
           child: Container(
               height: 1024 * 2.h,
               width: ScreenUtil().screenWidth,
               child: Column(
                 children: [
-                  Category(),
+                  Category(
+                    isActive: 'signup',
+                    isLogin: false,
+                  ),
                   SizedBox(
                     height: 120.h,
                   ),
@@ -70,7 +73,7 @@ class _Part1_SignupState extends State<Part1_Signup> {
                           height: 228 * 2.h,
                           width: 373 * 2.h,
                           decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 196, 196, 196),
+                              color: Color.fromARGB(255, 145, 242, 233),
                               borderRadius: BorderRadius.circular(20)),
                           child: Column(
                             children: [
@@ -105,7 +108,7 @@ class _Part1_SignupState extends State<Part1_Signup> {
                                             color: man
                                                 ? Colors.amber
                                                 : Color.fromARGB(
-                                                    255, 226, 226, 226)),
+                                                    255, 5, 199, 242)),
                                         child: Center(
                                           child: BuildContainerImg(
                                             height: 80 * 2.h,
@@ -133,7 +136,7 @@ class _Part1_SignupState extends State<Part1_Signup> {
                                             color: woman
                                                 ? Colors.amber
                                                 : Color.fromARGB(
-                                                    255, 226, 226, 226)),
+                                                    255, 242, 179, 225)),
                                         child: Center(
                                           child: BuildContainerImg(
                                             height: 80 * 2.h,
@@ -163,7 +166,7 @@ class _Part1_SignupState extends State<Part1_Signup> {
                             height: 65 * 2.h,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                color: Color.fromARGB(255, 80, 80, 80)),
+                                color: Color.fromARGB(255, 252, 148, 149)),
                             child: Center(
                                 child: Text('Next',
                                     style: GoogleFonts.dosis(
@@ -185,7 +188,7 @@ class _Part1_SignupState extends State<Part1_Signup> {
                                 decoration: BoxDecoration(
                                     border: Border.all(),
                                     borderRadius: BorderRadius.circular(100),
-                                    color: Color.fromARGB(255, 80, 80, 80)),
+                                    color: Color.fromARGB(255, 252, 148, 149)),
                               ),
                               SizedBox(
                                 width: 10.w,

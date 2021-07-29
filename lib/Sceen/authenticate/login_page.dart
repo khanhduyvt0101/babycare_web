@@ -1,5 +1,6 @@
 import 'package:babycare_web/Sceen/authenticate/signup/signup_page.dart';
 import 'package:babycare_web/Sceen/category.dart';
+import 'package:babycare_web/Sceen/home.dart';
 import 'package:babycare_web/UI_Widget/containerImg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,14 +35,17 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFf5f5f5),
+      backgroundColor: Color.fromARGB(255, 167, 155, 242),
       body: SingleChildScrollView(
           child: Container(
               height: 1024 * 2.h,
               width: ScreenUtil().screenWidth,
               child: Column(
                 children: [
-                  Category(),
+                  Category(
+                    isActive: 'login',
+                    isLogin: false,
+                  ),
                   SizedBox(height: 100.h),
                   Container(
                     height: 560 * 2.h,
@@ -60,21 +64,32 @@ class LoginPage extends StatelessWidget {
                         SizedBox(
                           height: 45 * 2.h,
                         ),
-                        Container(
-                          width: 300 * 2.h,
-                          height: 65 * 2.h,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color.fromARGB(255, 80, 80, 80)),
-                          child: Center(
-                              child: Text(
-                            'LOGIN',
-                            style: GoogleFonts.dosis(
-                                textStyle: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white,
-                                    fontSize: 20 * 2.sp)),
-                          )),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()));
+                          },
+                          child: Container(
+                            width: 300 * 2.h,
+                            height: 65 * 2.h,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color.fromARGB(255, 252, 148, 149)),
+                            child: Center(
+                                child: Text(
+                              'LOGIN',
+                              style: GoogleFonts.dosis(
+                                  textStyle: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
+                                      fontSize: 20 * 2.sp)),
+                            )),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.h,
                         ),
                         Container(
                           child: Text(
@@ -110,7 +125,7 @@ class LoginPage extends StatelessWidget {
                             height: 65 * 2.h,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Color.fromARGB(255, 226, 226, 226)),
+                                color: Color.fromARGB(255, 255, 218, 143)),
                             child: Center(
                                 child: Text(
                               'Create New Account',

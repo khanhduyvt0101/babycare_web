@@ -42,8 +42,9 @@ class _Part3_SignupState extends State<Part3_Signup> {
                 Container(
                   height: 10 * 2.h,
                   width: 100 * 2.h,
-                  decoration:
-                      BoxDecoration(color: Colors.black, border: Border.all()),
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 133, 180, 242),
+                      border: Border.all()),
                 ),
                 Container(
                   height: 10 * 2.h,
@@ -62,13 +63,16 @@ class _Part3_SignupState extends State<Part3_Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFf5f5f5),
+        backgroundColor: Color.fromARGB(255, 167, 155, 242),
         body: SingleChildScrollView(
             child: Container(
                 height: 1024 * 2.h,
                 width: ScreenUtil().screenWidth,
                 child: Column(children: [
-                  Category(),
+                  Category(
+                    isActive: 'signup',
+                    isLogin: false,
+                  ),
                   SizedBox(
                     height: 40.h,
                   ),
@@ -104,7 +108,7 @@ class _Part3_SignupState extends State<Part3_Signup> {
                           height: 600 * 2.h,
                           width: 331 * 2.h,
                           decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 196, 196, 196),
+                              color: Color.fromARGB(255, 145, 242, 233),
                               borderRadius: BorderRadius.circular(20)),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -132,20 +136,16 @@ class _Part3_SignupState extends State<Part3_Signup> {
                                       children: [
                                         _buildContainer(
                                             'Porridge: 0 b', 8 * 2.h),
+                                        _buildContainer('Milk: 0 ml', 8 * 2.h),
+                                        _buildContainer('Meat: 0 g', 8 * 2.h),
+                                        _buildContainer('Fish: 0 g', 12 * 2.h),
                                         _buildContainer(
-                                            'Porridge: 0 b', 8 * 2.h),
+                                            'Egg: 0 unit', 11 * 2.h),
+                                        _buildContainer('Vegets: 0 g', 8 * 2.h),
                                         _buildContainer(
-                                            'Porridge: 0 b', 8 * 2.h),
+                                            'Vegets: 0 g', 10 * 2.h),
                                         _buildContainer(
-                                            'Porridge: 0 b', 12 * 2.h),
-                                        _buildContainer(
-                                            'Porridge: 0 b', 11 * 2.h),
-                                        _buildContainer(
-                                            'Porridge: 0 b', 8 * 2.h),
-                                        _buildContainer(
-                                            'Porridge: 0 b', 10 * 2.h),
-                                        _buildContainer(
-                                            'Porridge: 0 b', 8 * 2.h),
+                                            'Citrus fruit: 0 g', 8 * 2.h),
                                       ],
                                     ),
                                   )
@@ -165,7 +165,8 @@ class _Part3_SignupState extends State<Part3_Signup> {
                                             style: GoogleFonts.dosis(
                                               textStyle: TextStyle(
                                                   fontWeight: FontWeight.w700,
-                                                  color: Colors.black,
+                                                  color: Color.fromARGB(
+                                                      255, 252, 148, 149),
                                                   fontSize: 20 * 2.sp),
                                             ))),
                                   ),
@@ -187,8 +188,8 @@ class _Part3_SignupState extends State<Part3_Signup> {
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(20),
-                                          color:
-                                              Color.fromARGB(255, 80, 80, 80)),
+                                          color: Color.fromARGB(
+                                              255, 252, 148, 149)),
                                       child: Center(
                                           child: Text('Next',
                                               style: GoogleFonts.dosis(
@@ -237,7 +238,7 @@ class _Part3_SignupState extends State<Part3_Signup> {
                                 decoration: BoxDecoration(
                                     border: Border.all(),
                                     borderRadius: BorderRadius.circular(100),
-                                    color: Color.fromARGB(255, 80, 80, 80)),
+                                    color: Color.fromARGB(255, 252, 148, 149)),
                               ),
                             ],
                           ),

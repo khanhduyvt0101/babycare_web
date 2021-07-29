@@ -50,14 +50,17 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFf5f5f5),
+      backgroundColor: Color.fromARGB(255, 167, 155, 242),
       body: SingleChildScrollView(
         child: Container(
           height: 1024 * 2.h,
           width: ScreenUtil().screenWidth,
           child: Column(
             children: [
-              Category(),
+              Category(
+                isActive: 'signup',
+                isLogin: false,
+              ),
               SizedBox(
                 height: 80.h,
               ),
@@ -144,7 +147,7 @@ class _SignupPageState extends State<SignupPage> {
                             height: 65 * 2.h,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Color.fromARGB(255, 80, 80, 80)),
+                                color: Color.fromARGB(255, 252, 148, 149)),
                             child: Center(
                                 child: Text(
                               'SIGN UP',
